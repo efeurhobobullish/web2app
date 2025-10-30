@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { View, Text, StyleSheet, Animated, Platform, Linking } from "react-native";
+import { View, Text, StyleSheet, Animated, Platform, Linking, BackHandler } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { WebView } from "react-native-webview";
 import NetInfo from "@react-native-community/netinfo";
@@ -51,6 +51,7 @@ export default function App() {
   const [retryCount, setRetryCount] = useState(0);
   const [servicesReady, setServicesReady] = useState(false);
   const [cacheStats, setCacheStats] = useState(null);
+  const [canGoBack, setCanGoBack] = useState(false);
   const webViewRef = useRef(null);
   const retryTimeoutRef = useRef(null);
   const progressAnim = useRef(new Animated.Value(0)).current;
@@ -143,6 +144,21 @@ export default function App() {
     };
   }, []);
 
+  // Handle back button press - separate useEffect to avoid stale closure
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
+      if (canGoBack && webViewRef.current) {
+        webViewRef.current.goBack();
+        return true; // Prevent default behavior (closing app)
+      }
+      return false; // Allow default behavior (close app) if can't go back
+    });
+
+    return () => {
+      backHandler.remove();
+    };
+  }, [canGoBack]);
+
   if (!isConnected) {
     return (
       <SafeAreaView style={styles.offlineContainer}>
@@ -222,7 +238,7 @@ export default function App() {
       }
     }
     
-    sendTestNotification();
+    // sendTestNotification(); // Commented out to prevent notifications on every page load
     checkForAPINotifications();
   };
 
@@ -237,6 +253,10 @@ export default function App() {
 
   const handleShouldStartLoadWithRequest = (request) => {
     return true;
+  };
+
+  const handleNavigationStateChange = (navState) => {
+    setCanGoBack(navState.canGoBack);
   };
 
  const injectedJavaScript = `
@@ -443,6 +463,7 @@ const handleWebViewMessage = async (event) => {
         onLoadEnd={handleLoadEnd}
         onError={handleError}
         onShouldStartLoadWithRequest={handleShouldStartLoadWithRequest}
+        onNavigationStateChange={handleNavigationStateChange}
         allowsBackForwardNavigationGestures
         scalesPageToFit
         startInLoadingState={false}

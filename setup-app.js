@@ -204,6 +204,13 @@ function copyDirectory(src, dest, excludes = []) {
     const srcPath = path.join(src, item);
     const destPath = path.join(dest, item);
 
+    // Prevent copying into subdirectories of the destination to avoid infinite recursion
+    const resolvedSrc = path.resolve(srcPath);
+    const resolvedDest = path.resolve(dest);
+    if (resolvedSrc.startsWith(resolvedDest + path.sep) || resolvedSrc === resolvedDest) {
+      continue;
+    }
+
     if (fs.statSync(srcPath).isDirectory()) {
       copyDirectory(srcPath, destPath, excludes);
     } else {
@@ -257,7 +264,7 @@ async function setupApp(config) {
 
     log('📋 Copying template files...', 'blue');
     const templateDir = path.join(__dirname);
-    copyDirectory(templateDir, appDir, ['node_modules', '.git', '.expo', 'setup-app.js', 'README.md', 'examples.md', 'test-app', 'test-store-app', 'sample-app']);
+    copyDirectory(templateDir, appDir, ['node_modules', '.git', '.expo', 'setup-app.js', 'README.md', 'examples.md', 'test-app', 'test-store-app', 'sample-app', 'modern-test-app']);
 
     log('⚙️  Configuring app settings...', 'blue');
     
