@@ -1,0 +1,64 @@
+{
+  "name": "web2app",
+  "version": "1.0.0",
+  "description": "Transform any website into a native mobile app with advanced features like caching, notifications, and deep linking. Built with React Native and Expo.",
+  "main": "index.js",
+  "author": {
+    "name": "Alexander Paul",
+    "email": "heisweirdo@gmail.com",
+    "url": "https://heisalexie.xyz"
+  },
+  "homepage": "https://github.com/learnwithalex/web2app#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/learnwithalex/web2app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/learnwithalex/web2app/issues"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "webview",
+    "mobile-app",
+    "website-to-app",
+    "app-generator",
+    "cross-platform",
+    "ios",
+    "android",
+    "pwa",
+    "notifications",
+    "caching",
+    "deep-linking"
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "setup": "node setup-app.js"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "@react-native-community/netinfo": "11.4.1",
+    "expo": "54.0.21",
+    "expo-background-fetch": "^14.0.7",
+    "expo-device": "^8.0.9",
+    "expo-document-picker": "^14.0.7",
+    "expo-file-system": "~19.0.17",
+    "expo-notifications": "^0.32.12",
+    "expo-router": "~6.0.14",
+    "expo-splash-screen": "~31.0.10",
+    "expo-status-bar": "~3.0.8",
+    "expo-task-manager": "^14.0.8",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "react-native-safe-area-context": "^5.6.1",
+    "react-native-webview": "13.15.0"
+  },
+  "private": true
+}
