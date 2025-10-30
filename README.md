@@ -193,7 +193,7 @@ We welcome contributions! Please feel free to submit issues and pull requests.
 
 If you use Web2App in your project, please consider:
 - ⭐ Starring this repository
-- 🔗 Linking back to [Web2App](https://github.com/web2app-dev/web2app)
+- 🔗 Linking back to [Web2App](https://github.com/learnwithalex/web2app)
 - 📢 Mentioning us in your project documentation
 
-**Built by the Web2App Team** | [GitHub](https://github.com/web2app-dev) | [Issues](https://github.com/web2app-dev/web2app/issues)
+**Built by the Web2App Team** | [GitHub](https://github.com/learnwithalex/web2app) | [Issues](https://github.com/learnwithalex/web2app/issues)
