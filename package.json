@@ -4,7 +4,6 @@
   "description": "Transform any website into a native mobile app with advanced features like caching, notifications, and deep linking. Built with React Native and Expo.",
   "main": "index.js",
   "private": true,
-
   "author": {
     "name": "Empire Tech",
     "email": "empiretech@duck.com",
