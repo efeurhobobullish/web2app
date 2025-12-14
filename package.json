@@ -4,17 +4,17 @@
   "description": "Transform any website into a native mobile app with advanced features like caching, notifications, and deep linking. Built with React Native and Expo.",
   "main": "index.js",
   "author": {
-    "name": "Alexander Paul",
-    "email": "heisweirdo@gmail.com",
-    "url": "https://heisalexie.xyz"
+    "name": "Empire Tech",
+    "email": "empiretech@duck.com",
+    "url": "https://empiretech.net.ng"
   },
-  "homepage": "https://github.com/learnwithalex/web2app#readme",
+  "homepage": "https://github.com/efeurhobobullish/web2app#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/learnwithalex/web2app.git"
+    "url": "https://github.com/efeurhobobullish/web2app.git"
   },
   "bugs": {
-    "url": "https://github.com/learnwithalex/web2app/issues"
+    "url": "https://github.com/efeurhobobullish/web2app/issues"
   },
   "keywords": [
     "react-native",
