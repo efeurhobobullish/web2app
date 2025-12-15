@@ -32,13 +32,15 @@
       "intentFilters": [
         {
           "action": "VIEW",
+          "autoVerify": true,
           "data": [
             {
               "scheme": "{{APP_SCHEME}}"
             },
             {
               "scheme": "https",
-              "host": "{{MAIN_DOMAIN}}"
+              "host": "{{MAIN_DOMAIN}}",
+              "pathPrefix": "/"
             }
           ],
           "category": ["BROWSABLE", "DEFAULT"]
